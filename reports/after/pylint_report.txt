@@ -1,6 +1,4 @@
-﻿************* Module music_catalog
-music_catalog.py:71:0: C0304: Final newline missing (missing-final-newline)
-
-------------------------------------------------------------------
-Your code has been rated at 9.76/10 (previous run: 4.57/10, +5.18)
+﻿
+-------------------------------------------------------------------
+Your code has been rated at 10.00/10 (previous run: 9.76/10, +0.24)
 

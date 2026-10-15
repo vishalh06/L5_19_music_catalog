@@ -5,7 +5,10 @@ import secrets
 import sqlite3
 
 conn = sqlite3.connect(":memory:")
-conn.execute("CREATE TABLE songs (id INTEGER PRIMARY KEY, title TEXT, artist TEXT, plays INTEGER)")
+conn.execute(
+    "CREATE TABLE songs ("
+    "id INTEGER PRIMARY KEY, title TEXT, artist TEXT, plays INTEGER)"
+)
 
 
 def add_song(title, artist, plays=0, playlist=None):
@@ -28,7 +31,9 @@ def shuffle_pick():
 
 def popularity(title):
     """Classify a song using its play count."""
-    row = conn.execute("SELECT plays FROM songs WHERE title = ?", (title,)).fetchone()
+    row = conn.execute(
+        "SELECT plays FROM songs WHERE title = ?", (title,)
+    ).fetchone()
     if row is None:
         return "unknown"
     return "popular" if row[0] > 100 else "niche"
@@ -61,7 +66,12 @@ def main():
     loaded_playlist = load_playlist(blob)
     if len(loaded_playlist) > 1:
         print("multi-song playlist")
-    print(popularity("Aurora"), popularity("Monsoon"), shuffle_pick(), total_plays())
+    print(
+        popularity("Aurora"),
+        popularity("Monsoon"),
+        shuffle_pick(),
+        total_plays(),
+    )
 
 
 if __name__ == "__main__":
